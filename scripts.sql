@@ -1,8 +1,4 @@
 -- create table clientes (id, email)
-CREATE TABLE clientes (
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(30) NOT NULL UNIQUE
-)
 
 
 
