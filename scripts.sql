@@ -5,11 +5,11 @@ CREATE TABLE clientes (
 );
 
 
--- create table facturas (id, client_id)
+-- create table facturas (id, cliente_id)
 CREATE TABLE facturas(
     id SERIAL PRIMARY KEY,
-    client_id INTEGER NOT NULL,
-    FOREIGN KEY (client_id) REFERENCES clientes (id)
+    cliente_id INTEGER NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes (id)
 );
 
 

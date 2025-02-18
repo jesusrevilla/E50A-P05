@@ -42,10 +42,7 @@ jobs:
         run: |
           set -o pipefail
           psql -h localhost -U postgres -d testdb -f tests.sql 2>&1 | tee test_output.txt
-          ERROR_LINES=$(grep -E "ERROR:" test_output.txt | cut -d':' -f1-3)
-          echo "ERROR_LINES<<EOF" >> $GITHUB_ENV
-          echo "$ERROR_LINES" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV          
+          cat test_output.txt          
         env:
           PGPASSWORD: postgres
 
