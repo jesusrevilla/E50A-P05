@@ -1,0 +1,30 @@
+name: Daily Pull Request Info
+
+on:
+  schedule:
+    - cron: '0 22 * * *'
+
+jobs:
+  get-pr-info:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Get Open Pull Requests
+      id: get-prs
+      run: |
+        prs=$(gh pr list --state open --json number,headRefName,author,statusCheckRollup --jq '.[] | {number: .number, branch: .headRefName, user: .author.login, status: .statusCheckRollup[].conclusion}')
+        echo "PRS=$prs" >> $GITHUB_ENV
+
+    - name: Display Pull Request Info
+      run: |
+        echo "Open Pull Requests:"
+        echo "${{ env.PRS }}"
+
+    - name: Record Execution Time
+      run: echo "Execution Time: $(date)" >> $GITHUB_ENV
+
+    - name: Display Execution Time
+      run: echo "Execution Time: ${{ env.Execution_Time }}"
