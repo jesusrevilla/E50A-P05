@@ -27,3 +27,8 @@ DELETE FROM empleados WHERE nombre = 'Luis Martínez';
 
 SELECT * FROM empleados;
 
+
+SELECT * FROM empleados WHERE salario > 50000;
+
+
+SELECT nombre FROM empleados;
