@@ -1,4 +1,4 @@
-\echo 'Sebastian Heredia Pardo - 175680'
+\echo 'Sebastian Heredia Pardo - 175680\n'
 
 -- Creacion de tabla empleados
 CREATE TABLE empleados (
