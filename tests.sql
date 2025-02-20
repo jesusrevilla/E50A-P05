@@ -16,3 +16,24 @@ BEGIN
     END IF;
 END $$;
 
+DO $$
+DECLARE
+    total_empleados INT;
+BEGIN
+
+    SELECT COUNT(*) INTO total_empleados FROM empleados;
+    IF (total_empleados) <> 4 THEN
+        RAISE EXCEPTION 'Error: Empleados erroneos';
+    END IF;
+END $$;
+
+DO $$
+DECLARE
+  total_empleados_sal_may_50000 INT;
+BEGIN
+
+  SELECT COUNT(*) INTO total_empleados_sal_may_50000 FROM empleados WHERE salario>=50000;
+  IF(total_empleados_sal_may_50000)<> 4 THEN
+      RAISE EXCEPTION 'Error: Empleados erroneos';
+      END IF;
+END $$
