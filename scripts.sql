@@ -16,7 +16,7 @@ INSERT INTO empleados (nombre, salario) VALUES
 SELECT * FROM empleados;
 
 --modificacion 1 de tabla 
-UPDATE empleados SET salario = 55000 
+UPDATE empleados SET salario = 65000 
 WHERE nombre = 'Ana Gómez';
 SELECT * FROM empleados;
 
