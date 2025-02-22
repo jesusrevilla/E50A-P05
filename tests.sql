@@ -16,3 +16,18 @@ BEGIN
     END IF;
 END $$;
 
+-- Verificar que no hay empleados con salario negativo
+DO $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM empleados WHERE salario < 0) THEN
+        RAISE EXCEPTION 'Error: Existe un empleado con salario negativo';
+    END IF;
+END $$;
+
+-- Verificar que no haya empleados con nombres duplicados
+DO $$
+BEGIN
+    IF (SELECT COUNT(*) FROM empleados GROUP BY nombre HAVING COUNT(*) > 1) > 0 THEN
+        RAISE EXCEPTION 'Error: Existen empleados con nombres duplicados';
+    END IF;
+END $$;
